@@ -1,0 +1,28 @@
+{
+    "name" : "hammertime",
+    "description" : "A dead simple operations timer for performance testing.",
+    "version" : "0.1.0",
+    "private" : true,
+    "author" : "Trevor Livingston <tlivings@gmail.com>",
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/tlivings/hammertime.git"
+    },
+    "bugs" : "http://github.com/tlivings/hammertime/issues",
+    "engines" : {
+        "node" : "~0.10.x"
+    },
+    "dependencies" : {
+        "microtime" : "~0.5.0"
+    },
+    "devDependencies" : {
+        "mocha" : "*",
+        "chai" : "*"
+    },
+    "scripts" : {
+        "test" : "make test"
+    },
+    "main" : "./index.js",
+    "readme" : "README.md",
+    "license" : "MIT"
+}
