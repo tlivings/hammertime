@@ -12,8 +12,8 @@ Wait... Should this be `hammer(fn).time(config)` or `hammer(config).time(fn)`?!
 
 ### Configuration
 
-- `before` - function to run as setup. `function (next)`.
-- `after` - function to run after timer runs.
+- `before` - function to run as setup, passed a callback to invoke when complete.
+- `after` - function to run after timer runs, results from `time` are passed to this function.
 - `iterations` - number of iterations, default is `100`.
 
 Configuration can also be performed by composition as seen below.
