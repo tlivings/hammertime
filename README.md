@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/[tlivings]/[hammertime].png)](https://travis-ci.org/[tlivings]/[hammertime])
+[![Build Status](https://travis-ci.org/tlivings/hammertime.png)](https://travis-ci.org/tlivings/hammertime)
 
 # Hammertime
 
