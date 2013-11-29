@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/[tlivings]/[hammertime].png)](https://travis-ci.org/[tlivings]/[hammertime])
+
 # Hammertime
 
 Stop! Hammer time.
