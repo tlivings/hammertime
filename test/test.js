@@ -7,7 +7,7 @@ describe('hammer', function() {
 
     it('should time sync', function(next) {
 
-        var fn, n = 1;
+        var fn;
 
         hammer({
             before: function (done) {
@@ -32,7 +32,7 @@ describe('hammer', function() {
 
 	it('should time async', function(next) {
 
-        var fn, n = 1;
+        var fn;
 
         hammer({
             before: function (done) {
@@ -59,7 +59,7 @@ describe('hammer', function() {
 
     it('should use before() and after().', function (next) {
 
-        var fn, n = 1;
+        var fn;
 
         hammer()
             .before(function (done) {
