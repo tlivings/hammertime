@@ -12,17 +12,35 @@ Wait... Should this be `hammer(fn).time(config)` or `hammer(config).time(fn)`?!
 
 ### Configuration
 
+A configuration object can be passed to the `hammer` function to configure the context for the timer.
+
 - `before` - function to run as setup, passed a callback to invoke when complete.
 - `after` - function to run after timer runs, results from `time` are passed to this function.
 - `iterations` - number of iterations, default is `100`.
 
-Configuration can also be performed by composition as seen below.
+Configuration can also be performed by composition as seen in some examples below.
 
 ### API
 
+- `hammer(config)` - create and configure a timer context.
+
+Example:
+
+```javascript
+hammer({
+    before: function (next) {
+        next();
+    },
+    after: function (results) {
+        console.dir(results);
+    },
+    iterations: 500
+});
+```
+
 Once `hammer()` is called, an object will be returned with the following functions.
 
-- `before(fn)` - function to run before `time`. `fn` is passed a callback to invoke when complete.
+- `before(fn)` - function to run before `time`, in lieu of configuration option. `fn` is passed a callback to invoke when complete.
 - `time(fn)` - begins the iterations of `fn`. `fn` can be asynchronous if a callback argument is supplied.
 
 Example:
@@ -41,7 +59,7 @@ hammer()
 
 `time` will also return an object that provides a single function:
 
-- `after(fn)` - function to run after `time`'s iterations. `fn` is passed the results of `time`.
+- `after(fn)` - function to run after `time`'s iterations, in lieu of configuration option. `fn` is passed the results of `time`.
 
 Example:
 
