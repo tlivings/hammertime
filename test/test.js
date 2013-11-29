@@ -57,24 +57,23 @@ describe('hammer', function() {
 
 	});
 
-    it('should use done()', function(next) {
+    it('should use before() and after().', function (next) {
 
         var fn, n = 1;
 
-        hammer({
-            before: function (done) {
+        hammer()
+            .before(function (done) {
                 var crypto = require('crypto');
                 fn = function () {
                     return crypto.createHash('md5').update('Hello World').digest('hex');
                 }
                 done();
-            }
-        })
+            })
         .time(function () {
             fn();
         })
-        .done(function (results) {
-            assert.strictEqual(results.iterations, 100);
+            .after(function (results) {
+                assert.strictEqual(results.iterations, 100);
             assert.isNumber(results.time);
             assert.isNumber(results.ops);
             next();
