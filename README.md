@@ -27,6 +27,8 @@ Configuration can also be performed by composition as seen in some examples belo
 Example:
 
 ```javascript
+var hammer = require('hammertime');
+
 hammer({
     before: function (next) {
         next();
