@@ -2,7 +2,6 @@
     "name" : "hammertime",
     "description" : "A dead simple operations timer for performance testing.",
     "version" : "0.1.0",
-    "private" : true,
     "author" : "Trevor Livingston <tlivings@gmail.com>",
     "repository" : {
         "type" : "git",
