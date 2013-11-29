@@ -8,6 +8,10 @@ hammer(config).time(fn);
 
 Wait... Should this be `hammer(fn).time(config)` or `hammer(config).time(fn)`?!
 
+# Installation
+
+`npm install hammertime`
+
 # Usage
 
 ### Configuration
