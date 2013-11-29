@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tlivings/hammertime.png)](https://travis-ci.org/tlivings/hammertime)
+[![Build Status](https://travis-ci.org/tlivings/hammertime.png)](https://travis-ci.org/tlivings/hammertime) [![NPM version](https://badge.fury.io/js/hammertime.png)](http://badge.fury.io/js/hammertime)
 
 # Hammertime
 
