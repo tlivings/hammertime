@@ -22,6 +22,5 @@
         "test" : "make test"
     },
     "main" : "./index.js",
-    "readme" : "README.md",
     "license" : "MIT"
 }
