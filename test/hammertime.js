@@ -48,8 +48,9 @@ describe('hammer', function () {
     it('should run sync', function (next) {
 
         hammer({
+            iterations : 10000,
             after : function (results) {
-                assert.strictEqual(results.iterations, 100);
+                assert.strictEqual(results.iterations, 10000);
                 assert.isNumber(results.time);
                 assert.isNumber(results.ops);
                 next();
@@ -68,8 +69,9 @@ describe('hammer', function () {
         }
 
         hammer({
+            iterations : 10000,
             after : function (results) {
-                assert.strictEqual(results.iterations, 100);
+                assert.strictEqual(results.iterations, 10000);
                 assert.isNumber(results.time);
                 assert.isNumber(results.ops);
                 next();
