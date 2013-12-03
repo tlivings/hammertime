@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('chai').assert,
-    hammer = require('../index');
+hammer = require('../index');
 
 describe('hammer', function () {
 
@@ -22,8 +22,9 @@ describe('hammer', function () {
                 next();
             },
             iterations : 10
-        }).time(function () {
-            });
+        })
+        .time(function () {
+        });
 
     });
 
@@ -32,16 +33,16 @@ describe('hammer', function () {
         var count = 0;
 
         hammer()
-            .before(function (done) {
-                count++;
-                done();
-            })
-            .time(function () {
-            })
-            .after(function () {
-                assert.strictEqual(count, 1);
-                next();
-            });
+        .before(function (done) {
+            count++;
+            done();
+        })
+        .time(function () {
+        })
+        .after(function () {
+            assert.strictEqual(count, 1);
+            next();
+        });
 
     });
 
@@ -56,9 +57,9 @@ describe('hammer', function () {
                 next();
             }
         })
-            .time(function () {
+        .time(function () {
 
-            });
+        });
 
     });
 
@@ -77,11 +78,11 @@ describe('hammer', function () {
                 next();
             }
         })
-            .time(function (step) {
-                fn(function () {
-                    step();
-                });
+        .time(function (step) {
+            fn(function () {
+                step();
             });
+        });
 
     });
 
