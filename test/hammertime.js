@@ -69,9 +69,9 @@ describe('hammer', function () {
         }
 
         hammer({
-            iterations : 10000,
+            iterations : 100,
             after : function (results) {
-                assert.strictEqual(results.iterations, 10000);
+                assert.strictEqual(results.iterations, 100);
                 assert.isNumber(results.time);
                 assert.isNumber(results.ops);
                 next();
