@@ -8,9 +8,6 @@
         "url" : "http://github.com/tlivings/hammertime.git"
     },
     "bugs" : "http://github.com/tlivings/hammertime/issues",
-    "engines" : {
-        "node" : "~0.10.x"
-    },
     "dependencies" : {
         "microtime" : "^1.2.0"
     },
