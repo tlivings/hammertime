@@ -11,9 +11,9 @@
     "dependencies" : {
         "microtime" : "^1.2.0"
     },
-    "devDependencies" : {
-        "mocha" : "*",
-        "chai" : "*"
+    "devDependencies": {
+        "chai": "^1.10.0",
+        "mocha": "^2.1.0"
     },
     "scripts" : {
         "test" : "make test"
