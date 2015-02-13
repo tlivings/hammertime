@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('chai').assert,
-hammer = require('../index');
+    hammer = require('../lib');
 
 describe('hammer', function () {
 
