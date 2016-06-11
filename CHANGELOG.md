@@ -1,3 +1,12 @@
+
+### v0.1.4
+
+* Bumped dependencies.
+
+### v0.1.3
+
+* Use closures instead of bind.
+
 ### v0.1.2
 
 * Made iteration non-recursive to allow for higher iteration numbers. With async it assumed `fn` is in fact async and therefor performs recursively safely with high iterations.
