@@ -21,6 +21,7 @@ Tape('hammer', (t) => {
             iterations : 10
         })
         .time(() => {
+            const noop = true;
         });
 
     });
