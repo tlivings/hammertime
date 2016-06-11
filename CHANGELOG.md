@@ -1,4 +1,9 @@
 
+### v1.0.0
+
+* ES6 conversion
+* Simplified API to remove `before` and `after` functions in favor of just config.
+
 ### v0.1.4
 
 * Bumped dependencies.

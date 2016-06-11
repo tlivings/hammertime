@@ -8,8 +8,6 @@ Stop! Hammer time.
 hammer(config).time(fn);
 ```
 
-Wait... Should this be `hammer(fn).time(config)` or `hammer(config).time(fn)`?!
-
 # Installation
 
 `npm install hammertime`
@@ -36,46 +34,36 @@ Example:
 var hammer = require('hammertime');
 
 hammer({
-    before: function (next) {
+    before(next) {
         next();
     },
-    after: function (results) {
+    after(results) {
         console.dir(results);
     },
     iterations: 500
 });
 ```
 
-Once `hammer()` is called, an object will be returned with the following functions.
+Once `hammer()` is called, an object will be returned with the following function.
 
-- `before(fn)` - function to run before `time`, in lieu of configuration option. `fn` is passed a callback to invoke when complete.
 - `time(fn)` - begins the iterations of `fn`. `fn` can be asynchronous if a callback argument is supplied.
 
 Example:
 
 ```javascript
-hammer()
-.before(function (next) {
-    next();
+hammer({
+    before(next) {
+        next();
+    },
+    after(results) {
+        console.dir(results);
+    },
+    iterations: 500
 })
 .time(function (next) {
-    asyncFunction(function (result) {
+    someAsyncFunction((result) => {
         next();
     });
-});
-```
-
-`time` will also return an object that provides a single function:
-
-- `after(fn)` - function to run after `time`'s iterations, in lieu of configuration option. `fn` is passed the results of `time`.
-
-Example:
-
-```javascript
-hammer()
-.time(fn)
-.after(function (results) {
-    console.dir(results);
 });
 ```
 

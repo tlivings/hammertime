@@ -1,86 +1,64 @@
 'use strict';
 
-var assert = require('chai').assert,
-    hammer = require('../lib');
+const Tape = require('tape');
+const Hammer = require('../index');
 
-describe('hammer', function () {
+Tape('hammer', (t) => {
 
-    it('should configure with options', function (next) {
+    t.test('configure with options', (t) => {
+        t.plan(4);
 
-        var count = 0;
-
-        hammer({
-            before : function (start) {
-                assert.isFunction(start);
-                count++;
+        Hammer({
+            before(start) {
+                t.pass('before called.');
                 start();
             },
-            after : function (results) {
-                assert.isObject(results);
-                assert.strictEqual(results.iterations, 10);
-                assert.strictEqual(count, 1);
-                next();
+            after(results) {
+                t.pass('after called.');
+                t.equal(typeof results, 'object', 'results is an object.');
+                t.equal(results.iterations, 10, 'ran 10 iterations.');
             },
             iterations : 10
         })
-        .time(function () {
+        .time(() => {
         });
 
     });
 
-    it('should use before() and after() composition.', function (next) {
+    t.test('run sync', (t) => {
+        t.plan(3);
 
-        var count = 0;
-
-        hammer()
-        .before(function (done) {
-            count++;
-            done();
-        })
-        .time(function () {
-        })
-        .after(function () {
-            assert.strictEqual(count, 1);
-            next();
-        });
-
-    });
-
-    it('should run sync', function (next) {
-
-        hammer({
+        Hammer({
             iterations : 10000,
-            after : function (results) {
-                assert.strictEqual(results.iterations, 10000);
-                assert.isNumber(results.time);
-                assert.isNumber(results.ops);
-                next();
+            after(results) {
+                t.equal(results.iterations, 10000, 'ran configured iterations.');
+                t.equal(typeof results.time, 'number', 'results.time is a number.');
+                t.equal(typeof results.ops, 'number', 'results.ops is a number.');
             }
         })
-        .time(function () {
-
+        .time(() => {
+            const noop = true;
         });
-
     });
 
-    it('should run async', function (next) {
+    t.test('run async', (t) => {
+        t.plan(3);
 
-        function fn (cb) {
+        const afn = function (cb) {
             setImmediate(cb);
         }
 
-        hammer({
+        Hammer({
             iterations : 100,
-            after : function (results) {
-                assert.strictEqual(results.iterations, 100);
-                assert.isNumber(results.time);
-                assert.isNumber(results.ops);
-                next();
+            after(results) {
+                t.equal(results.iterations, 100, 'ran configured iterations.');
+                t.equal(typeof results.time, 'number', 'results.time is a number.');
+                t.equal(typeof results.ops, 'number', 'results.ops is a number.');
             }
         })
-        .time(function (step) {
-            fn(function () {
-                step();
+        .time((next) => {
+            afn(function () {
+                next();
             });
         });
 
