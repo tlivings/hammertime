@@ -65,4 +65,14 @@ Tape('hammer', (t) => {
 
     });
 
+    t.test('defaults', (t) => {
+
+        Hammer()
+        .time(() => {
+            const noop = true;
+        });
+
+        setTimeout(t.end, 100);
+    });
+
 });
