@@ -2,15 +2,7 @@
 
 const Microtime = require('microtime');
 
-const hammer = function ({ before, after, iterations = 1000 } = {}) {
-
-    const resolveBefore = function (callback) {
-        if (before) {
-            before(callback);
-            return;
-        }
-        callback();
-    };
+const hammer = function ({ before = (n) => n(), after = (r) => console.log(r), iterations = 1000 } = {}) {
 
     return {
         time(fn) {
@@ -46,7 +38,7 @@ const hammer = function ({ before, after, iterations = 1000 } = {}) {
                 };
             }
 
-            resolveBefore(() => {
+            before(() => {
                 start = Microtime.now();
                 timer();
             });

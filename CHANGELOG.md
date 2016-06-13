@@ -3,6 +3,7 @@
 
 * ES6 conversion
 * Simplified API to remove `before` and `after` functions in favor of just config.
+* Requires Node 6.
 
 ### v0.1.4
 
